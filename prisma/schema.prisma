@@ -13,9 +13,38 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Organization {
+  id         String   @id @default(uuid())
+  name       String
+  email      String   @unique
+  password   String
+  created_at DateTime @default(now())
+  whatsapp   String
 
-  id String @id @default(uuid())
+  cep          String
+  state        String
+  city         String
+  neighborhood String
+  street       String
 
-  @@map("users")
+  latitude  Decimal
+  longitude Decimal
+
+  pets Pet[]
+
+  @@map("orgs")
+}
+
+model Pet {
+  id          String   @id @default(uuid())
+  name        String
+  age         Int
+  about       String
+  size        String
+  energyLevel String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  owner_id    String
+
+  owner Organization @relation(fields: [owner_id], references: [id])
 }
