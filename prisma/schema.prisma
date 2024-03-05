@@ -39,7 +39,7 @@ model Pet {
   id          String   @id @default(uuid())
   name        String
   age         Int
-  about       String
+  about       String?
   size        String
   energyLevel String
   created_at  DateTime @default(now())
