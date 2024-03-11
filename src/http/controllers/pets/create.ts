@@ -1,7 +1,6 @@
 import { type FastifyReply, type FastifyRequest } from 'fastify'
 import { z } from 'zod'
-import { CreatePetUseCase } from '../../../use-cases/create-pet'
-import { PrismaPetRepository } from '../../../repositories/implementations/prisma-pets-repository'
+import { makeCreatePetUseCase } from '../../../use-cases/factories/make-create-pet-use-case'
 
 export async function create(
   request: FastifyRequest,
@@ -19,7 +18,7 @@ export async function create(
   const { name, age, about, size, energyLevel, ownerId } =
     createPetBodySchema.parse(request.body)
 
-  const createPetUseCase = new CreatePetUseCase(new PrismaPetRepository())
+  const createPetUseCase = makeCreatePetUseCase()
 
   const { pet } = await createPetUseCase.execute({
     name,
