@@ -6,7 +6,7 @@ const envSchema = z.object({
   NODE_ENV: z.string().min(1).default('DEV'),
 })
 
-console.log(process.env.DATABASE_URL)
+
 const envParsed = envSchema.safeParse(process.env)
 
 if (!envParsed.success) {
