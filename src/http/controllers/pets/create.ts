@@ -6,6 +6,7 @@ export async function create(
   request: FastifyRequest,
   reply: FastifyReply,
 ): Promise<FastifyReply> {
+  
   const createPetBodySchema = z.object({
     name: z.string(),
     age: z.number(),
