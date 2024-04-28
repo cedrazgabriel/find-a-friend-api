@@ -27,6 +27,8 @@ describe('Create Organization Use Case Tests', () => {
       whatsapp: '12345678',
     })
 
+    // teste coderrabbit
+
     // valida se o id do pet criado é uma string
     expect(org.id).toEqual(expect.any(String))
   })
