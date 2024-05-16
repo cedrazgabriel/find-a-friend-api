@@ -1,5 +1,7 @@
 import { FastifyInstance } from 'fastify'
-import { create } from './create'
+import { createPetController } from './create'
+import { searchPetsController } from './search'
+import { getPetController } from './get'
 
 export async function petRoutes(app: FastifyInstance) {
   app.post('/pets', {
@@ -36,7 +38,7 @@ export async function petRoutes(app: FastifyInstance) {
       },
     },
     handler: (req, res) => {
-      create(req, res)
+      createPetController(req, res)
     },
   })
 
@@ -73,7 +75,44 @@ export async function petRoutes(app: FastifyInstance) {
       },
     },
     handler: (req, res) => {
-      create(req, res)
+      searchPetsController(req, res)
+    },
+  })
+
+  app.get('/pets/:id', {
+    schema: {
+      description: 'Buscar pet específico',
+      tags: ['Pets'],
+      summary:
+        'Esse endpoint é responsável por obter os detalhes de um pet específico',
+      querystring: {
+        type: 'number',
+        properties: {
+          city: { type: 'string' },
+          age: { type: 'number' },
+          size: { type: 'string' },
+          energyLevel: { type: 'string' },
+        },
+      },
+      response: {
+        200: {
+          description: 'Sucesso ao buscar o pet',
+          type: 'object',
+          properties: {
+            id: { type: 'string' },
+            name: { type: 'string' },
+            age: { type: 'number' },
+            about: { type: 'string' },
+            size: { type: 'string' },
+            created_at: { type: 'string' },
+            updated_at: { type: 'string' },
+            owner_id: { type: 'string' },
+          },
+        },
+      },
+    },
+    handler: (req, res) => {
+      getPetController(req, res)
     },
   })
 }

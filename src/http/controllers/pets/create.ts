@@ -2,7 +2,7 @@ import { type FastifyReply, type FastifyRequest } from 'fastify'
 import { z } from 'zod'
 import { makeCreatePetUseCase } from '../../../use-cases/factories/make-create-pet-use-case'
 
-export async function create(
+export async function createPetController(
   request: FastifyRequest,
   reply: FastifyReply,
 ): Promise<FastifyReply> {
