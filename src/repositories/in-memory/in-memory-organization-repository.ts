@@ -6,6 +6,10 @@ import { Decimal } from '@prisma/client/runtime/library'
 export class InMemoryOrganizationRepository implements IOrganizationRepository {
   public items: Organization[] = []
 
+  async findById(id: string) {
+    return this.items.find((item) => item.id === id) || null
+  }
+
   async findByEmail(email: string) {
     return this.items.find((item) => item.email === email) || null
   }
