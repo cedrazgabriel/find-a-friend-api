@@ -13,7 +13,7 @@ export async function petRoutes(app: FastifyInstance) {
         type: 'object',
         properties: {
           name: { type: 'string' },
-          age: { type: 'number' },
+          age: { type: 'string' },
           about: { type: 'string' },
           size: { type: 'string' },
           energyLevel: { type: 'string' },
@@ -27,7 +27,7 @@ export async function petRoutes(app: FastifyInstance) {
           properties: {
             id: { type: 'string' },
             name: { type: 'string' },
-            age: { type: 'number' },
+            age: { type: 'string' },
             about: { type: 'string' },
             size: { type: 'string' },
             created_at: { type: 'string' },

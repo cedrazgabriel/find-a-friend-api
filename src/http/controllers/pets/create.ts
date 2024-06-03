@@ -8,7 +8,7 @@ export async function createPetController(
 ): Promise<FastifyReply> {
   const createPetBodySchema = z.object({
     name: z.string(),
-    age: z.number(),
+    age: z.string(),
     about: z.string().nullable(),
     size: z.string(),
     energyLevel: z.string(),
