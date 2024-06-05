@@ -38,7 +38,7 @@ model Organization {
 model Pet {
   id          String   @id @default(uuid())
   name        String
-  age         Int
+  age         String
   about       String?
   size        String
   energyLevel String
