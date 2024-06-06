@@ -1,7 +1,7 @@
 ### Como rodar o projeto
 
 - Primeiro, rodar o comando npm install
-- Criar um arquivo .env na raiz do projeto (Pode copiar do .env.example)
+- Criar um arquivo .env na raiz do projeto (Pode copiar do .env.example) - Merro
 - Colocar no .env no campo DATABASE_URL a url passada no grupo
 - Rodar o comando npx prisma migrate dev para sincronizar o banco de dados
 - Rodar o comando npm run dev para rodar o servidor (Por padrão, a aplicação roda na porta 3333)
