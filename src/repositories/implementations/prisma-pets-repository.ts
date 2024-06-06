@@ -13,18 +13,29 @@ export class PrismaPetRepository implements IPetsRepository {
   }
 
   async findAll(params: FindAllParams): Promise<Pet[]> {
-    const pets = await prisma.pet.findMany({
-      where: {
-        age: params.age,
-        size: params.size,
-        energyLevel: params.energyLevel,
-        owner: {
-          city: {
-            contains: params.city,
-            mode: 'insensitive',
-          },
+    const whereClause: any = {
+      owner: {
+        city: {
+          contains: params.city,
+          mode: 'insensitive',
         },
       },
+    }
+
+    if (params.age !== undefined) {
+      whereClause.age = params.age
+    }
+
+    if (params.size !== undefined) {
+      whereClause.size = params.size
+    }
+
+    if (params.energyLevel !== undefined) {
+      whereClause.energyLevel = params.energyLevel
+    }
+
+    const pets = await prisma.pet.findMany({
+      where: whereClause,
     })
 
     return pets

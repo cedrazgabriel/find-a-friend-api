@@ -3,7 +3,7 @@ import { type IPetsRepository } from '../repositories/interfaces/IPetsRepository
 
 interface CreatePetRequest {
   name: string
-  age: number
+  age: string
   about: string | null
   size: string
   energyLevel: string
