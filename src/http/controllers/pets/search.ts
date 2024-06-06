@@ -13,11 +13,11 @@ export async function searchPetsController(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
+
   const { city, age, size, energyLevel } = querySchema.parse(request.query)
 
   const searchPetsUseCase = makeSearchPetsUseCase()
-
-  try {
+  
     const { pets } = await searchPetsUseCase.execute({
       city,
       age,
@@ -26,9 +26,4 @@ export async function searchPetsController(
     })
 
     return reply.status(200).send({ pets })
-  } catch (error) {
-    console.error(error)
-
-    return reply.status(500).send({ message: 'Internal server error' })
-  }
 }

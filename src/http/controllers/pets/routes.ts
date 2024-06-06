@@ -42,51 +42,8 @@ export async function petRoutes(app: FastifyInstance) {
     },
   })
 
-  app.get('/pets', {
-    schema: {
-      description: 'Buscar pets',
-      tags: ['Pets'],
-      summary:
-        'Esse endpoint é responsável por obter os pets disponíveis para adoção',
-      querystring: {
-        type: 'object',
-        properties: {
-          city: { type: 'string' },
-          age: { type: 'string' },
-          size: { type: 'string' },
-          energyLevel: { type: 'string' },
-        },
-      },
-      response: {
-        200: {
-          description: 'Sucesso ao buscar pets',
-          type: 'object',
-          properties: {
-            pets: {
-              type: 'array',
-              items: {
-                type: 'object',
-                properties: {
-                  id: { type: 'string' },
-                  name: { type: 'string' },
-                  age: { type: 'string' },
-                  about: { type: 'string' },
-                  size: { type: 'string' },
-                  energyLevel: { type: 'string' },
-                  created_at: { type: 'string' },
-                  updated_at: { type: 'string' },
-                  owner_id: { type: 'string' },
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-    handler: (req, res) => {
-      searchPetsController(req, res)
-    },
-  })
-
+  app.get('/pets', searchPetsController)
+     
+  
   app.get('/pets/:id', getPetController)
 }

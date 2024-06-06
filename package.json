@@ -7,7 +7,8 @@
     "test": "vitest run --dir src/use-cases",
     "start": "node build/server.js",
     "dev": "tsx watch src/server.ts",
-    "build": "tsup src --out-dir build"
+    "build": "tsup src --out-dir build",
+    "coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "@types/bcryptjs": "2.4.6",
     "@types/node": "^20.11.24",
     "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@vitest/coverage-v8": "1.6.0",
     "eslint": "8.57.0",
     "eslint-config-standard-with-typescript": "43.0.1",
     "eslint-plugin-import": "2.29.1",
