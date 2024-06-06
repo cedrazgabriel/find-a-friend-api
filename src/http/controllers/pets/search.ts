@@ -32,3 +32,6 @@ export async function searchPetsController(
     return reply.status(500).send({ message: 'Internal server error' })
   }
 }
+
+
+
