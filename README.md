@@ -11,6 +11,8 @@
 | Marcus Vinicius Lima Ribeiro            | 12723116626 |
 | Thiago Silvany de Azevedo               | 12724161085 |
 
+Apresentação de Slides: [PDF](./apresentacao.pdf) | [PPTX](apresentacao.pptx)
+
 ### Como rodar o projeto
 
 - Primeiro, rodar o comando npm install
