@@ -1,3 +1,16 @@
+## Find A Friend API
+
+### Integrantes (Grupo 3)
+
+| Integrantes                             | RA          |
+| --------------------------------------- | ----------- |
+| Antonio Gutemberg                       | 12723115063 |
+| Edilson Monteiro Neto                   | 1272318185  |
+| Gabriel Vitor Cedraz Carneiro           | 12723118390 |
+| Gilson Roberto de Oliveira Leite Junior | 1272312112  |
+| Marcus Vinicius Lima Ribeiro            | 12723116626 |
+| Thiago Silvany de Azevedo               | 12724161085 |
+
 ### Como rodar o projeto
 
 - Primeiro, rodar o comando npm install
