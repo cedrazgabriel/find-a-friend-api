@@ -24,6 +24,7 @@ export class CreatePetUseCase {
     energyLevel,
     ownerId,
   }: CreatePetRequest): Promise<CreatePetResponse> {
+    // o insert acontece aqui 
     const pet = await this.petRepository.create({
       name,
       age,

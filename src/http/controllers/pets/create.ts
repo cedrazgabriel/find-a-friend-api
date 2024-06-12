@@ -6,6 +6,7 @@ export async function createPetController(
   request: FastifyRequest,
   reply: FastifyReply,
 ): Promise<FastifyReply> {
+  
   const createPetBodySchema = z.object({
     name: z.string(),
     age: z.string(),
@@ -15,10 +16,9 @@ export async function createPetController(
     ownerId: z.string(),
   })
 
-  const { name, age, about, size, energyLevel, ownerId } =
-    createPetBodySchema.parse(request.body)
+  const { name, age, about, size, energyLevel, ownerId } = createPetBodySchema.parse(request.body)
 
-  const createPetUseCase = makeCreatePetUseCase()
+  const createPetUseCase = makeCreatePetUseCase()  //Aqui fica a ORM prism que conversa diretamente com o db
 
   const { pet } = await createPetUseCase.execute({
     name,
